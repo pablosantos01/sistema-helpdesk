@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width: 500px;">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Atualizar Status do Chamado</h5>
+  </div>
+  <div class="card-body">
+    <p><strong>Chamado:</strong> {{ ticket.titulo }}</p>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status" required>
+          <option value="Aberto" {% if ticket.status == 'Aberto' %}selected{% endif %}>Aberto</option>
+          <option value="Em andamento" {% if ticket.status == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+          <option value="Resolvido" {% if ticket.status == 'Resolvido' %}selected{% endif %}>Resolvido</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Atualizar</button>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">Voltar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+

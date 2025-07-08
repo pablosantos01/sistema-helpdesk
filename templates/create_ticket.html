@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width: 600px;">
+  <div class="card-header bg-success text-white">
+    <h5 class="mb-0">Criar Novo Chamado</h5>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" required />
+      </div>
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea class="form-control" id="descricao" name="descricao" rows="4" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="setor" class="form-label">Setor</label>
+        <input type="text" class="form-control" id="setor" name="setor" required />
+      </div>
+      <div class="mb-3">
+        <label for="responsavel" class="form-label">Responsável</label>
+        <input type="text" class="form-control" id="responsavel" name="responsavel" required />
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status" required>
+          <option value="Aberto">Aberto</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Resolvido">Resolvido</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
+

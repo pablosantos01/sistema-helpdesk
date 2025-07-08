@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Chamados Abertos</h2>
+  <a href="{{ url_for('create') }}" class="btn btn-success">+ Novo Chamado</a>
+</div>
+
+{% if tickets %}
+<table class="table table-striped table-hover shadow-sm rounded">
+  <thead class="table-primary">
+    <tr>
+      <th>Título</th>
+      <th>Setor</th>
+      <th>Status</th>
+      <th>Responsável</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <td>{{ ticket.titulo }}</td>
+      <td>{{ ticket.setor }}</td>
+      <td>
+        {% if ticket.status == 'Aberto' %}
+          <span class="badge bg-danger">{{ ticket.status }}</span>
+        {% elif ticket.status == 'Em andamento' %}
+          <span class="badge bg-warning text-dark">{{ ticket.status }}</span>
+        {% else %}
+          <span class="badge bg-success">{{ ticket.status }}</span>
+        {% endif %}
+      </td>
+      <td>{{ ticket.responsavel }}</td>
+      <td>
+        <a href="{{ url_for('update', id=ticket.id) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-info text-center">
+  Nenhum chamado registrado.
+</div>
+{% endif %}
+{% endblock %}
+
