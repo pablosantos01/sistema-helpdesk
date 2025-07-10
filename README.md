@@ -113,14 +113,13 @@ Sistema Help Desk/
 
 ## 📸 Screenshots
 
-01.
 ![01](https://github.com/user-attachments/assets/65d80841-599a-416e-92c8-e9c21f019512)
 
-02.
 ![02](https://github.com/user-attachments/assets/c34cc90b-ee1f-4baf-8a3c-b9263232ec2b)
 
-03.
 ![03](https://github.com/user-attachments/assets/18486b8c-99f8-4deb-ac51-231afa9707d0)
+
+<img width="1519" height="1039" alt="telainicial" src="https://github.com/user-attachments/assets/763ba9ae-ac04-47db-b68f-04a9b693a1f1" />
 
 
 
