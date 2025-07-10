@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width: 700px;">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Detalhes do Chamado</h5>
+  </div>
+  <div class="card-body">
+    <h4>{{ ticket.titulo }}</h4>
+    <p><strong>Descrição:</strong><br>{{ ticket.descricao }}</p>
+    <p>
+      <strong>Setor:</strong> {{ ticket.setor }}<br>
+      <strong>Responsável:</strong> {{ ticket.responsavel }}<br>
+      <strong>Status:</strong>
+      {% if ticket.status == 'Aberto' %}
+        <span class="badge bg-danger">{{ ticket.status }}</span>
+      {% elif ticket.status == 'Em andamento' %}
+        <span class="badge bg-warning text-dark">{{ ticket.status }}</span>
+      {% else %}
+        <span class="badge bg-success">{{ ticket.status }}</span>
+      {% endif %}
+      <br>
+      <strong>Criado em:</strong> {{ ticket.data_criacao.strftime('%d/%m/%Y %H:%M') }}
+    </p>
+
+    {% if ticket.arquivo_nome %}
+    <p>
+      <strong>Anexo:</strong>
+      <a href="{{ url_for('uploaded_file', filename=ticket.arquivo_nome) }}" target="_blank" rel="noopener noreferrer" class="link-primary">
+        {{ ticket.arquivo_nome }}
+      </a>
+    </p>
+    {% endif %}
+
+    <hr>
+
+    <h5>Comentários</h5>
+    {% if comentarios %}
+      <ul class="list-group mb-3">
+        {% for comentario in comentarios %}
+        <li class="list-group-item">
+          <small class="text-muted">{{ comentario.user.email }} em {{ comentario.data_criacao.strftime('%d/%m/%Y %H:%M') }}</small>
+          <p class="mb-0">{{ comentario.mensagem }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Nenhum comentário até o momento.</p>
+    {% endif %}
+
+    <form method="POST" class="mb-0">
+      <div class="mb-3">
+        <label for="mensagem" class="form-label">Adicionar comentário</label>
+        <textarea class="form-control" id="mensagem" name="mensagem" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">Voltar</a>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+
+

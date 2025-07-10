@@ -5,6 +5,26 @@
   <a href="{{ url_for('create') }}" class="btn btn-success">+ Novo Chamado</a>
 </div>
 
+<form method="get" class="row g-3 mb-3">
+  <div class="col-md-3">
+    <input type="text" class="form-control" name="setor" placeholder="Filtrar por setor" value="{{ request.args.get('setor', '') }}">
+  </div>
+  <div class="col-md-3">
+    <input type="text" class="form-control" name="responsavel" placeholder="Filtrar por responsável" value="{{ request.args.get('responsavel', '') }}">
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="status">
+      <option value="">Todos os status</option>
+      <option value="Aberto" {% if request.args.get('status') == 'Aberto' %}selected{% endif %}>Aberto</option>
+      <option value="Em andamento" {% if request.args.get('status') == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+      <option value="Resolvido" {% if request.args.get('status') == 'Resolvido' %}selected{% endif %}>Resolvido</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+  </div>
+</form>
+
 {% if tickets %}
 <table class="table table-striped table-hover shadow-sm rounded">
   <thead class="table-primary">
@@ -19,7 +39,7 @@
   <tbody>
     {% for ticket in tickets %}
     <tr>
-      <td>{{ ticket.titulo }}</td>
+      <td><a href="{{ url_for('ticket_detail', id=ticket.id) }}">{{ ticket.titulo }}</a></td>
       <td>{{ ticket.setor }}</td>
       <td>
         {% if ticket.status == 'Aberto' %}
@@ -44,4 +64,6 @@
 </div>
 {% endif %}
 {% endblock %}
+
+
 
