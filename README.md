@@ -7,7 +7,7 @@ Sistema web simples para registro, acompanhamento e atualização de chamados in
 ## 🎯 Visão do Produto
 
 O **Sistema Help Desk** foi idealizado para resolver um problema comum em empresas de qualquer porte: a desorganização no fluxo de chamados internos.  
-Com uma interface simples e direta, o sistema permite abrir, visualizar e atualizar chamados, facilitando a comunicação entre equipes e aumentando a eficiência no atendimento.
+Com uma interface simples e direta, o sistema permite abrir, visualizar, atualizar chamados, além de incluir comentários, anexar arquivos e controlar acesso via login.
 
 ---
 
@@ -31,9 +31,10 @@ Atuei como **Product Manager e desenvolvedor** neste projeto:
 - Setor  
 - Responsável  
 - Status (Aberto, Em andamento, Resolvido)
-
-✅ Visualizar lista de chamados  
-✅ Atualizar o status dos chamados  
+✅ Visualizar lista de chamados com filtros por status, setor e responsável
+✅ Atualizar lista de chamados
+✅ Visualizar detalhes do chamado com histórico de comentários internos  
+✅ Login e autenticação de usuários (com níveis básicos)
 ✅ Interface responsiva (desktop e mobile)  
 ✅ Armazenamento com SQLite + SQLAlchemy  
 
@@ -41,13 +42,11 @@ Atuei como **Product Manager e desenvolvedor** neste projeto:
 
 ## 🔮 Funcionalidades Futuras (Backlog)
 
-- [ ] Login e autenticação de usuários (admin, operador, solicitante)  
-- [ ] Filtros por status, data, setor e responsável  
-- [ ] Comentários internos nos chamados  
-- [ ] Dashboard com KPIs e gráficos  
-- [ ] Integração com Slack / E-mail / WhatsApp  
-- [ ] Exportação de relatórios em PDF ou Excel  
-- [ ] Upload de arquivos e anexos
+- [ ] Dashboard com KPIs e gráficos 
+- [ ] Integração com Slack / E-mail / WhatsApp
+- [ ] Exportação de relatórios em PDF ou Excel
+- [ ] Controle mais granular de permissões de usuários
+- [ ] Melhorias na interface e usabilidade  
 
 ---
 
@@ -84,9 +83,11 @@ Sistema Help Desk/
 │   ├── layout.html
 │   ├── index.html
 │   ├── create_ticket.html
+│   ├── ticket_detail.html
 │   └── update_ticket.html
 ├── static/
 │   └── style.css          # Estilos customizados
+├── uploads/               # Arquivos anexados pelos usuários
 ├── database/
 │   └── helpdesk.db        # Banco de dados SQLite
 ```
@@ -101,6 +102,14 @@ Sistema Help Desk/
 | 1.2    | Comentários e histórico            | 🔜 Planejado |
 | 1.3    | Dashboard e KPIs                   | 🔜 Planejado |
 | 2.0    | Integrações externas               | 🔜 Futuro    |
+
+| Versão | Funcionalidade                                           | Status       |
+| ------ | -------------------------------------------------------- | ------------ |
+| 1.0    | Criar, listar e atualizar chamados, upload e comentários | ✅ Concluído  |
+| 1.1    | Autenticação de usuários                                 | ✅ Concluído  |
+| 1.2    | Dashboard e KPIs                                         | 🔜 Planejado |
+| 1.3    | Integrações externas                                     | 🔜 Futuro    |
+
 
 ## 📸 Screenshots
 
