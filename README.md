@@ -119,7 +119,15 @@ Sistema Help Desk/
 
 ![03](https://github.com/user-attachments/assets/18486b8c-99f8-4deb-ac51-231afa9707d0)
 
-<img width="1519" height="1039" alt="telainicial" src="https://github.com/user-attachments/assets/763ba9ae-ac04-47db-b68f-04a9b693a1f1" />
+<img width="1519" height="1035" alt="telalogin" src="https://github.com/user-attachments/assets/87ea2cab-bd33-47ed-ac99-0c2dc8d262b0" />
+
+<img width="1518" height="1040" alt="telaregistro" src="https://github.com/user-attachments/assets/de968313-0a0a-48f9-8ef3-583da08a62ba" />
+
+<img width="1519" height="1039" alt="telainicial" src="https://github.com/user-attachments/assets/445d31d7-8393-492b-89a5-95837cfda4c9" />
+
+<img width="1520" height="1037" alt="criarchamado" src="https://github.com/user-attachments/assets/e0a08691-7ca3-4d20-951f-ffd4674d48cf" />
+
+<img width="1519" height="1039" alt="criarchamado2" src="https://github.com/user-attachments/assets/7a0fbda1-d5a8-482a-a217-1e8d5012efb4" />
 
 
 
