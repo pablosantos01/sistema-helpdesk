@@ -76,7 +76,7 @@ Atuei como Product Manager e desenvolvedor neste projeto:
 
 ---
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 Sistema Help Desk/
 ├── app.py                 # Arquivo principal do Flask
@@ -96,6 +96,7 @@ Sistema Help Desk/
 ├── uploads/               # Arquivos anexados pelos usuários
 ├── database/
 │   └── helpdesk.db        # Banco de dados SQLite
+
 
 ## 🗺️ Roadmap
 
