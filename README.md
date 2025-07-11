@@ -78,7 +78,6 @@ Atuei como Product Manager e desenvolvedor neste projeto:
 
 ## Estrutura do Projeto
 
-```plaintext
 Sistema Help Desk/
 ├── app.py                 # Arquivo principal do Flask
 ├── models.py              # Modelagem do banco de dados
