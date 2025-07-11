@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Dashboard - Indicadores do Help Desk</h2>
+
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <canvas id="statusChart"></canvas>
+  </div>
+  <div class="col-md-6 mb-4">
+    <canvas id="setorChart"></canvas>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <canvas id="responsavelChart"></canvas>
+  </div>
+  <div class="col-md-6 mb-4">
+    <canvas id="monthChart"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const data = {{ data|tojson }};
+
+  // Gráfico Chamados por Status (doughnut)
+  new Chart(document.getElementById('statusChart').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(data.status),
+      datasets: [{
+        data: Object.values(data.status),
+        backgroundColor: ['#dc3545', '#ffc107', '#198754'], // vermelho, amarelo, verde
+      }]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom' }},
+      responsive: true,
+      title: { display: true, text: 'Chamados por Status' }
+    }
+  });
+
+  // Gráfico Chamados por Setor (bar)
+  new Chart(document.getElementById('setorChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(data.setor),
+      datasets: [{
+        label: 'Chamados',
+        data: Object.values(data.setor),
+        backgroundColor: '#0d6efd'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { beginAtZero: true } },
+      plugins: { legend: { display: false }, title: { display: true, text: 'Chamados por Setor' }}
+    }
+  });
+
+  // Gráfico Chamados por Responsável (bar)
+  new Chart(document.getElementById('responsavelChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(data.responsavel),
+      datasets: [{
+        label: 'Chamados',
+        data: Object.values(data.responsavel),
+        backgroundColor: '#6610f2'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { beginAtZero: true } },
+      plugins: { legend: { display: false }, title: { display: true, text: 'Chamados por Responsável' }}
+    }
+  });
+
+  // Gráfico Chamados por Mês (line)
+  const labelsMonth = data.month.map(d => `${d.mes}/${d.ano}`);
+  const countsMonth = data.month.map(d => d.count);
+
+  new Chart(document.getElementById('monthChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: labelsMonth,
+      datasets: [{
+        label: 'Chamados',
+        data: countsMonth,
+        fill: false,
+        borderColor: '#198754',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { beginAtZero: true } },
+      plugins: { title: { display: true, text: 'Chamados por Mês' } }
+    }
+  });
+</script>
+{% endblock %}

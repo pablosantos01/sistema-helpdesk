@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import db, User, Ticket, Comment
 from werkzeug.utils import secure_filename
+from sqlalchemy import func, extract
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta'
@@ -44,6 +45,41 @@ def inject_current_year():
     return {'current_year': datetime.now().year}
 
 # Rotas
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    # Chamados por status
+    status_counts = db.session.query(
+        Ticket.status, func.count(Ticket.id)
+    ).group_by(Ticket.status).all()
+
+    # Chamados por setor
+    setor_counts = db.session.query(
+        Ticket.setor, func.count(Ticket.id)
+    ).group_by(Ticket.setor).all()
+
+    # Chamados por responsável
+    responsavel_counts = db.session.query(
+        Ticket.responsavel, func.count(Ticket.id)
+    ).group_by(Ticket.responsavel).all()
+
+    # Chamados por mês (ano e mês extraídos)
+    month_counts = db.session.query(
+        extract('year', Ticket.data_criacao).label('ano'),
+        extract('month', Ticket.data_criacao).label('mes'),
+        func.count(Ticket.id)
+    ).group_by('ano', 'mes').order_by('ano', 'mes').all()
+
+    # Montar dicionário para passar ao template
+    data = {
+        'status': {s: c for s, c in status_counts},
+        'setor': {s: c for s, c in setor_counts},
+        'responsavel': {r: c for r, c in responsavel_counts},
+        'month': [ {'ano': int(ano), 'mes': int(mes), 'count': c} for ano, mes, c in month_counts ]
+    }
+
+    return render_template('dashboard.html', data=data)
 
 @app.route('/uploads/<filename>')
 @login_required
@@ -176,6 +212,7 @@ def register():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
