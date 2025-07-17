@@ -113,26 +113,34 @@ Sistema Help Desk/
 1. Tela de Login do Sistema
 <img width="1522" height="1038" alt="Tela de Login do Sistema" src="https://github.com/user-attachments/assets/13049f8a-ee92-4469-82fd-18bf540439d1" />
 
+
 2. Tela de Registro de Novo Usuário
 <img width="1522" height="1037" alt="Tela de Registro de Novo Usuário" src="https://github.com/user-attachments/assets/feee2381-87c6-4dbc-a7a6-60d1b9a7d077" />
+
 
 3. Tela Inicial (Home)
 <img width="1521" height="1039" alt="Tela Inicial (Home)" src="https://github.com/user-attachments/assets/e12bed75-bb29-4af0-827e-cf2dfbb57986" />
 
+
 4. Formulário para Abertura de Chamado
 <img width="1522" height="1039" alt="Formulário para Abertura de Chamado" src="https://github.com/user-attachments/assets/1c3d29e0-8bbc-4ec3-92a3-1489db8bea51" />
+
 
 5. Confirmação de Chamado Criado com Sucesso
 <img width="1522" height="1037" alt="Confirmação de Chamado Criado" src="https://github.com/user-attachments/assets/859beecf-b5b2-4768-9d40-0fe807491ff4" />
 
+
 6. Visualização Detalhada do Chamado
 <img width="1522" height="1040" alt="Visualização Detalhada do Chamado" src="https://github.com/user-attachments/assets/5841c09e-4c00-43ea-b5ad-e41af1033038" />
+
 
 7. Alteração de Status do Chamado
 <img width="1518" height="1033" alt="Alteração de Status do Chamado" src="https://github.com/user-attachments/assets/a67fa9fc-9d5d-419c-88ea-f9f0dc239c2d" />
 
+
 8. Painel de Dashboard com Visão Geral dos Chamados
 <img width="1522" height="1037" alt="Dashboard com Visão Geral dos Chamados" src="https://github.com/user-attachments/assets/097b1e8d-c18c-4aca-955f-3666eb9afc5f" />
+
 
 ## 🤝 Contribuindo
 
